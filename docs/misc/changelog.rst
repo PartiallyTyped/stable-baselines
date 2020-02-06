@@ -17,6 +17,7 @@ New Features:
 - Parallelized updating and sampling from the replay buffer in DQN. (@flodorner)
 - Docker build script, `scripts/build_docker.sh`, can push images automatically.
 - Added a seeding method for vectorized environments. (@NeoExtended)
+- Added extend method to store batches of experience in ReplayBuffer. (@solliet)
 
 Bug Fixes:
 ^^^^^^^^^^
