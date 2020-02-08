@@ -23,13 +23,15 @@ def test_extend_uniform():
     ext.extend(states, actions, rewards, newstates, done)
     assert len(baseline) == len(ext)
     
-    # assert values
+    # Check buffers have same values
     for i in range(nvals):
         for j in range(5):
             condition = (baseline.storage[i][j] == ext.storage[i][j])
             if isinstance(condition, np.ndarray):
+                # for obs, obs_t1
                 assert np.all(condition)
             else:
+                # for done, reward action
                 assert condition
 
 def test_extend_prioritized():
@@ -53,13 +55,15 @@ def test_extend_prioritized():
     ext.extend(states, actions, rewards, newstates, done)
     assert len(baseline) == len(ext)
     
-    # assert values
+    # Check buffers have same values
     for i in range(nvals):
         for j in range(5):
             condition = (baseline.storage[i][j] == ext.storage[i][j])
             if isinstance(condition, np.ndarray):
+                # for obs, obs_t1
                 assert np.all(condition)
             else:
+                # for done, reward action
                 assert condition
     
     # assert priorities

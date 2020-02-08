@@ -76,7 +76,8 @@ class ReplayBuffer(object):
         :param obs_tp1: (Union[Tuple[Union[np.ndarray, int]], np.ndarray]) the current batch of observations
         :param done: (Union[Tuple[bool], np.ndarray]) terminal status of the batch
 
-        Note: uses the same names as .add to keep compat with named argument passing
+        Note: uses the same names as .add to keep compatibility with named argument passing
+                but expects iterables and arrays with more than 1 dimensions
         """
         for data in zip(obs_t, action, reward, obs_tp1, done):
             if self._next_idx >= len(self._storage):
@@ -162,7 +163,8 @@ class PrioritizedReplayBuffer(ReplayBuffer):
         :param obs_tp1: (Union[Tuple[Union[np.ndarray, int]], np.ndarray]) the current batch of observations
         :param done: (Union[Tuple[bool], np.ndarray]) terminal status of the batch
 
-        Note: uses the same names as .add to keep compat with named argument passing
+        Note: uses the same names as .add to keep compatibility with named argument passing
+            but expects iterables and arrays with more than 1 dimensions
         """
         idx = self._next_idx
         super().extend(obs_t, action, reward, obs_tp1, done)
