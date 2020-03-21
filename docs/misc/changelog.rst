@@ -18,8 +18,7 @@ New Features:
 Bug Fixes:
 ^^^^^^^^^^
 - Fixed DDPG sampling empty replay buffer when combined with HER  (@tirafesi)
-- Fixed SAC checking time to update on learn steps instead of total steps (@solliet)
-- Fixed TD3 checking time to update on learn steps instead of total steps (@solliet)
+- Fixed SAC/TD3 checking time to update on learn steps instead of total steps (@solliet)
 
 Deprecations:
 ^^^^^^^^^^^^^
