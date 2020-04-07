@@ -333,7 +333,7 @@ class TD3(OffPolicyRLModel):
 
                 # Only stop training if return value is False, not when it is None. This is for backwards
                 # compatibility with callbacks that have no return statement.
-                self.callback.update_locals(locals())
+                callback.update_locals(locals())
                 if callback.on_step() is False:
                     break
 
