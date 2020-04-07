@@ -50,6 +50,13 @@ class BaseCallback(ABC):
         self.logger = logger.Logger.CURRENT
         self._init_callback()
 
+    def update_locals(self, locals_:Dict[str, Any]):
+        '''
+        Used to make the call to 'locals' explicit.
+        When locals() is called, self.locals is updated
+        '''
+        pass
+
     def _init_callback(self) -> None:
         pass
 
