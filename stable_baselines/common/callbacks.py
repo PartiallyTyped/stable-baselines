@@ -52,10 +52,13 @@ class BaseCallback(ABC):
 
     def update_locals(self, locals_:Dict[str, Any]):
         '''
-        Used to make the call to 'locals' explicit.
-        When locals() is called, self.locals is updated
+        Updates the local variables of the training process
+        
+        For reference to which variables are accessible,
+        check each individual algorithm's documentation
+        
         '''
-        pass
+        self.locals.update(locals_)
 
     def _init_callback(self) -> None:
         pass
