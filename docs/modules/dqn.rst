@@ -173,7 +173,7 @@ You can easily define a custom architecture for the policy network:
 
 
 Callbacks - Accessible Variables 
-----------
+--------------------------------
 
 Depending on initialization parameters and timestep, different variables are accessible.
     +-------------------------------+-----------------------------------------------------+
