@@ -119,7 +119,7 @@ Parameters
 .. _deepq_policies:
 
 DQN Policies
--------------
+------------
 
 .. autoclass:: MlpPolicy
   :members:
