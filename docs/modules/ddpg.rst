@@ -198,7 +198,7 @@ Depending on initialization parameters and timestep, different variables are acc
     |- epoch                        |                                                     |
     |- logger                       |                                                     |
     +-------------------------------+-----------------------------------------------------+
-    |- obs_                         |Since timestep 0 and when self.vec_normalize_env is  |
+    |- obs\_                         |Since timestep 0 and when self.vec_normalize_env is  |
     |                               | not None or since timestep 2                        |
     +-------------------------------+-----------------------------------------------------+
     |- action                       |Since timestep 1                                     |
@@ -210,9 +210,9 @@ Depending on initialization parameters and timestep, different variables are acc
     |- done                         |                                                     |
     |- info                         |                                                     |
     +-------------------------------+-----------------------------------------------------+
-    |- obs_                         |Since timestep 2                                     |
-    |- new_obs_                     |                                                     |
-    |- reward_                      |                                                     |
+    |- obs\_                         |Since timestep 2                                     |
+    |- new_obs\_                     |                                                     |
+    |- reward\_                      |                                                     |
     +-------------------------------+-----------------------------------------------------+
     |- ep_rew                       |Since timestep 2 and writer is not None              |
     |- ep_done                      |                                                     |

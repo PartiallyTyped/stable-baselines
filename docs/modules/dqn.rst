@@ -176,52 +176,52 @@ Callbacks - Accessible Variables
 --------------------------------
 
 Depending on initialization parameters and timestep, different variables are accessible.
-    +-------------------------------+-----------------------------------------------------+
-    |Variable                       |                                         Availability|
-    +===============================+=====================================================+
-    |- new_tb_log                   |Since timestep 0                                     |
-    |- callback                     |                                                     |
-    |- episode_rewards              |                                                     |
-    |- episode_successes            |                                                     |
-    +-------------------------------+-----------------------------------------------------+
-    |- prioritized_replay_beta_iters|Since timestep 0 and when prioritized_replay is True |
-    +-------------------------------+-----------------------------------------------------+
-    |- reset                        |timestep 1                                           |
-    |- obs                          |                                                     |
-    |- kwargs                       |                                                     |
-    |- update_eps                   |                                                     |
-    |- update_param_noise_threshold |                                                     |
-    |- action                       |                                                     |
-    |- env_action                   |                                                     |
-    |- new_obs                      |                                                     |
-    |- rew                          |                                                     |
-    |- done                         |                                                     |
-    |- info                         |                                                     |
-    +-------------------------------+-----------------------------------------------------+
-    |- obs_                         |timestep 1 and environment is VecNormalize           |
-    +-------------------------------+-----------------------------------------------------+
-    |- obs_                         |timestep 2                                           |
-    |- new_obs_                     |                                                     |
-    |- reward_                      |                                                     |
-    |- can_sample                   |                                                     |
-    +-------------------------------+-----------------------------------------------------+
-    |- ep_rew                       |timestep 2 and writer is not None                    |
-    |- ep_done                      |                                                     |
-    +-------------------------------+-----------------------------------------------------+
-    |- experience                   |after the first rollout                              |
-    |- obses_t                      |                                                     |
-    |- actions                      |                                                     |
-    |- rewards                      |                                                     |
-    |- obses_tp1                    |                                                     |
-    |- dones                        |                                                     |
-    |- weights                      |                                                     |
-    |- batch_idxes                  |                                                     |
-    +-------------------------------+-----------------------------------------------------+
-    |- summary                      |after the first rollout and writer is not None       |
-    |- td_errors                    |                                                     |
-    +-------------------------------+-----------------------------------------------------+
-    |- run_options                  |if writer is not None and after 100 steps            |
-    |- run_metadata                 |                                                     |
-    +-------------------------------+-----------------------------------------------------+
-    |- maybe_is_success             |after the first episode, before rollout end          |
-    +-------------------------------+-----------------------------------------------------+
+    +--------------------------------+-----------------------------------------------------+
+    |Variable                        |                                         Availability|
+    +================================+=====================================================+
+    |- new_tb_log                    |Since timestep 0                                     |
+    |- callback                      |                                                     |
+    |- episode_rewards               |                                                     |
+    |- episode_successes             |                                                     |
+    +--------------------------------+-----------------------------------------------------+
+    |- prioritized_replay_beta_iters |Since timestep 0 and when prioritized_replay is True |
+    +--------------------------------+-----------------------------------------------------+
+    |- reset                         |timestep 1                                           |
+    |- obs                           |                                                     |
+    |- kwargs                        |                                                     |
+    |- update_eps                    |                                                     |
+    |- update_param_noise_threshold  |                                                     |
+    |- action                        |                                                     |
+    |- env_action                    |                                                     |
+    |- new_obs                       |                                                     |
+    |- rew                           |                                                     |
+    |- done                          |                                                     |
+    |- info                          |                                                     |
+    +--------------------------------+-----------------------------------------------------+
+    |- obs\_                         |timestep 1 and environment is VecNormalize           |
+    +--------------------------------+-----------------------------------------------------+
+    |- obs\_                         |timestep 2                                           |
+    |- new_obs\_                     |                                                     |
+    |- reward\_                      |                                                     |
+    |- can_sample                    |                                                     |
+    +--------------------------------+-----------------------------------------------------+
+    |- ep_rew                        |timestep 2 and writer is not None                    |
+    |- ep_done                       |                                                     |
+    +--------------------------------+-----------------------------------------------------+
+    |- experience                    |after the first rollout                              |
+    |- obses_t                       |                                                     |
+    |- actions                       |                                                     |
+    |- rewards                       |                                                     |
+    |- obses_tp1                     |                                                     |
+    |- dones                         |                                                     |
+    |- weights                       |                                                     |
+    |- batch_idxes                   |                                                     |
+    +--------------------------------+-----------------------------------------------------+
+    |- summary                       |after the first rollout and writer is not None       |
+    |- td_errors                     |                                                     |
+    +--------------------------------+-----------------------------------------------------+
+    |- run_options                   |if writer is not None and after 100 steps            |
+    |- run_metadata                  |                                                     |
+    +--------------------------------+-----------------------------------------------------+
+    |- maybe_is_success              |after the first episode, before rollout end          |
+    +--------------------------------+-----------------------------------------------------+
