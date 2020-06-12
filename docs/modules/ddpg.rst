@@ -160,3 +160,81 @@ You can easily define a custom architecture for the policy network:
   model = DDPG(CustomDDPGPolicy, 'Pendulum-v0', verbose=1)
   # Train the agent
   model.learn(total_timesteps=100000)
+
+
+Callbacks - Accessible Variables
+--------------------------------
+
+
+Depending on initialization parameters and timestep, different variables are accessible.
+    +-------------------------------+-----------------------------------------------------+
+    |Variable                       |                                         Availability|
+    +===============================+=====================================================+
+    |- new_tb_log                   |Since timestep 0                                     |
+    |- callback                     |                                                     |
+    |- rank                         |                                                     |
+    |- eval_episode_rewards_history |                                                     |
+    |- episode_rewards_history      |                                                     |
+    |- episode_successes            |                                                     |
+    |- episode_successes            |                                                     |
+    |- obs                          |                                                     |
+    |- eval_obs                     |                                                     |
+    |- eval_obs                     |                                                     |
+    |- episode_reward               |                                                     |
+    |- episodes                     |                                                     |
+    |- step                         |                                                     |
+    |- total_steps                  |                                                     |
+    |- start_time                   |                                                     |
+    |- epoch_episode_rewards        |                                                     |
+    |- epoch_episode_steps          |                                                     |
+    |- epoch_actor_losses           |                                                     |
+    |- epoch_critic_losses          |                                                     |
+    |- epoch_adaptive_distances     |                                                     |
+    |- eval_episode_rewards         |                                                     |
+    |- eval_qs                      |                                                     |
+    |- epoch_actions                |                                                     |
+    |- epoch_qs                     |                                                     |
+    |- epoch_episodes               |                                                     |
+    |- epoch                        |                                                     |
+    |- logger                       |                                                     |
+    +-------------------------------+-----------------------------------------------------+
+    |- obs_                         |Since timestep 0 and when self.vec_normalize_env is  |
+    |-                              | not None or since timestep 2                        |
+    +-------------------------------+-----------------------------------------------------+
+    |- action                       |Since timestep 1                                     |
+    |- q_value                      |                                                     |
+    |- unscaled_action              |Note: unscaled_action is overriden with the          |
+    |- action                       |evaluation's unscaled action during the evaluation   |
+    |- new_obs                      |                                                     |
+    |- reward                       |                                                     |
+    |- done                         |                                                     |
+    |- info                         |                                                     |
+    +-------------------------------+-----------------------------------------------------+
+    |- obs_                         |Since timestep 2                                     |
+    |- new_obs_                     |                                                     |
+    |- reward_                      |                                                     |
+    +-------------------------------+-----------------------------------------------------+
+    |- ep_rew                       |Since timestep 2 and writer is not None              |
+    |- ep_done                      |                                                     |
+    +-------------------------------+-----------------------------------------------------+
+    |- actor_loss                   |After the first rollout                              |
+    |- critic_loss                  |                                                     |
+    |- distance                     |                                                     |
+    +-------------------------------+-----------------------------------------------------+
+    |- summary                      |After the first rollout and writer is not None       |
+    |- td_errors                    |                                                     |
+    +-------------------------------+-----------------------------------------------------+
+    |- eval_episode_reward          |After the first evaluation                           |
+    |- eval_action                  |                                                     |
+    |- eval_q                       |                                                     |
+    |- eval_obs                     |                                                     |
+    |- eval_r                       |                                                     |
+    |- eval_done                    |                                                     |
+    +-------------------------------+-----------------------------------------------------+
+    |- mpi_size                     |After log_interval steps                             |
+    |- duration                     |                                                     |
+    |- stats                        |                                                     |
+    |- combined_stats               |                                                     |
+    |- logdir                       |                                                     |
+    |- logdir                       |                                                     |
+    +-------------------------------+-----------------------------------------------------+
