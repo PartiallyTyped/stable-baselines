@@ -199,7 +199,7 @@ Depending on initialization parameters and timestep, different variables are acc
     |- logger                       |                                                     |
     +-------------------------------+-----------------------------------------------------+
     |- obs_                         |Since timestep 0 and when self.vec_normalize_env is  |
-    |-                              | not None or since timestep 2                        |
+    |                               | not None or since timestep 2                        |
     +-------------------------------+-----------------------------------------------------+
     |- action                       |Since timestep 1                                     |
     |- q_value                      |                                                     |
