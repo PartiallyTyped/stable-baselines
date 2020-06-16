@@ -50,14 +50,14 @@ class BaseCallback(ABC):
         self.logger = logger.Logger.CURRENT
         self._init_callback()
 
-    def update_locals(self, locals_:Dict[str, Any]):
-        '''
+    def update_locals(self, locals_:Dict[str, Any]) -> None:
+        """
         Updates the local variables of the training process
-        
+
         For reference to which variables are accessible,
         check each individual algorithm's documentation
-        
-        '''
+
+        """
         self.locals.update(locals_)
 
     def _init_callback(self) -> None:
