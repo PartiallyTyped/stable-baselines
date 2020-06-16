@@ -218,8 +218,8 @@ Variables accessible from "timestep X" are variables that can be accessed when `
     +--------------------------------+-----------------------------------------------------+
     |- t_train                       |After nb_rollout_steps+1                             |
     +--------------------------------+-----------------------------------------------------+
-    |- distance                      |After ```nb_rollout_steps*ceil(                      |
-    |                                |                  nb_rollout_steps/batch_size) ```   |
+    |- distance                      |After                                                |
+    |                                |nb_rollout_steps*ceil(nb_rollout_steps/batch_size)```|
     |- critic_loss                   |                                                     |
     |- actor_loss                    |                                                     |
     +--------------------------------+-----------------------------------------------------+

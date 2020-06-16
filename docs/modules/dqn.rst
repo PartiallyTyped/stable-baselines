@@ -206,9 +206,9 @@ Variables accessible from "timestep X" are variables that can be accessed when
     |- done                          |                                                     |
     |- info                          |                                                     |
     +--------------------------------+-----------------------------------------------------+
-    |- obs_                          |From timestep 2                                      |
-    |- new_obs_                      |                                                     |
-    |- reward_                       |                                                     |
+    |- obs\_                         |From timestep 2                                      |
+    |- new_obs\_                     |                                                     |
+    |- reward\_                      |                                                     |
     |- can_sample                    |                                                     |
     |- mean_100ep_reward             |                                                     |
     |- num_episodes                  |                                                     |
