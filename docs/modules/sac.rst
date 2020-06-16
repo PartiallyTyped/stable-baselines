@@ -156,53 +156,54 @@ You can easily define a custom architecture for the policy network:
   model.learn(total_timesteps=100000)
 
 
-Depending on initialization parameters and timestep, different variables are accessible.
-Variables accessible from "timestep X" are variables that can be accessed when
-``self.timestep==X`` from the ``on_step`` function.
 
-+--------------------------------+-----------------------------------------------------+
-|Variable                        |                                         Availability|
-+================================+=====================================================+
-|- new_tb_log                    | From timestep 0                                     |
-|- callback                      |                                                     |
-|- replay_wrapper                |                                                     |
-|- total_timesteps               |                                                     |
-|- log_interval                  |                                                     |
-|- tb_log_name                   |                                                     |
-|- reset_num_timesteps           |                                                     |
-|- current_lr                    |                                                     |
-|- start_time                    |                                                     |
-|- episode_rewards               |                                                     |
-|- episode_successes             |                                                     |
-|- obs                           |                                                     |
-|- n_updates                     |                                                     |
-|- infos_values                  |                                                     |
-+--------------------------------+-----------------------------------------------------+
-|- obs\_                         | From timestep 0 and when self._vec_normalize_env    |
-|                                | is not None                                         |
-+--------------------------------+-----------------------------------------------------+
-|- step                          | From timestep 1                                     |
-|- unscaled_action               |                                                     |
-|- action                        |                                                     |
-|- new_obs                       |                                                     |
-|- reward                        |                                                     |
-|- done                          |                                                     |
-|- info                          |                                                     |
-+--------------------------------+-----------------------------------------------------+
-|- new_obs\_                     | From timestep 2                                     |
-|- reward\_                      |                                                     |
-|- maybe_ep_info                 |                                                     |
-|- num_episodes                  |                                                     |
-|- fps                           |                                                     |
-+--------------------------------+-----------------------------------------------------+
-|- ep_reward                     | From timestep 2 and when writer is not None         |
-|- ep_done                       |                                                     |
-+--------------------------------+-----------------------------------------------------+
-|- mb_infos_vals                 | After train_freq steps                              |
-|- grad_step                     |                                                     |
-|- frac                          |                                                     |
-|- current_lr                    |                                                     |
-+--------------------------------+-----------------------------------------------------+
-|- maybe_is_success              | After the first episode termination                 |
-+--------------------------------+-----------------------------------------------------+
+Callbacks - Accessible Variables
+--------------------------------
+
+Depending on initialization parameters and timestep, different variables are accessible.
+Variables accessible "From timestep X" are variables that can be accessed when
+``self.timestep==X`` in the ``on_step`` function.
+
+    +--------------------------------+-----------------------------------------------------+
+    |Variable                        |                                         Availability|
+    +================================+=====================================================+
+    |- self                          |From timestep 1                                      |
+    |- total_timesteps               |                                                     |
+    |- callback                      |                                                     |
+    |- log_interval                  |                                                     |
+    |- tb_log_name                   |                                                     |
+    |- reset_num_timesteps           |                                                     |
+    |- replay_wrapper                |                                                     |
+    |- new_tb_log                    |                                                     |
+    |- writer                        |                                                     |
+    |- current_lr                    |                                                     |
+    |- start_time                    |                                                     |
+    |- episode_rewards               |                                                     |
+    |- episode_successes             |                                                     |
+    |- obs                           |                                                     |
+    |- n_updates                     |                                                     |
+    |- infos_values                  |                                                     |
+    |- step                          |                                                     |
+    |- unscaled_action               |                                                     |
+    |- action                        |                                                     |
+    |- new_obs                       |                                                     |
+    |- reward                        |                                                     |
+    |- done                          |                                                     |
+    |- info                          |                                                     |
+    +--------------------------------+-----------------------------------------------------+
+    |- obs\_                         |From timestep 2                                      |
+    |- new_obs\_                     |                                                     |
+    |- reward\_                      |                                                     |
+    |- maybe_ep_info                 |                                                     |
+    |- mean_reward                   |                                                     |
+    |- num_episodes                  |                                                     |
+    +--------------------------------+-----------------------------------------------------+
+    |- mb_infos_vals                 |After timestep train_freq steps                      |
+    |- grad_step                     |                                                     |
+    +--------------------------------+-----------------------------------------------------+
+    |- frac                          |After timestep train_freq steps                      |
+    |                                |After at least batch_size and learning_starts steps  |
+    +--------------------------------+-----------------------------------------------------+
+    |- maybe_is_success              |After the first episode                              |
+    +--------------------------------+-----------------------------------------------------+
 

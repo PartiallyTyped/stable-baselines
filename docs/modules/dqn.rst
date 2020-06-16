@@ -182,15 +182,20 @@ Variables accessible from "timestep X" are variables that can be accessed when
     +--------------------------------+-----------------------------------------------------+
     |Variable                        |                                         Availability|
     +================================+=====================================================+
-    |- new_tb_log                    |From timestep 0                                      |
+    |- self                          |From timestep 1                                      |
+    |- total_timesteps               |                                                     |
     |- callback                      |                                                     |
+    |- log_interval                  |                                                     |
+    |- tb_log_name                   |                                                     |
+    |- reset_num_timesteps           |                                                     |
+    |- replay_wrapper                |                                                     |
+    |- new_tb_log                    |                                                     |
+    |- writer                        |                                                     |
     |- episode_rewards               |                                                     |
     |- episode_successes             |                                                     |
-    +--------------------------------+-----------------------------------------------------+
-    |- prioritized_replay_beta_iters |Since timestep 0 and when prioritized_replay is True |
-    +--------------------------------+-----------------------------------------------------+
-    |- reset                         |From timestep 1                                      |
+    |- reset                         |                                                     |
     |- obs                           |                                                     |
+    |- _                             |                                                     |
     |- kwargs                        |                                                     |
     |- update_eps                    |                                                     |
     |- update_param_noise_threshold  |                                                     |
@@ -201,30 +206,21 @@ Variables accessible from "timestep X" are variables that can be accessed when
     |- done                          |                                                     |
     |- info                          |                                                     |
     +--------------------------------+-----------------------------------------------------+
-    |- obs\_                         |From timestep 1 and environment is VecNormalize      |
-    +--------------------------------+-----------------------------------------------------+
-    |- obs\_                         |From timestep 2                                      |
-    |- new_obs\_                     |                                                     |
-    |- reward\_                      |                                                     |
+    |- obs_                          |From timestep 2                                      |
+    |- new_obs_                      |                                                     |
+    |- reward_                       |                                                     |
     |- can_sample                    |                                                     |
+    |- mean_100ep_reward             |                                                     |
+    |- num_episodes                  |                                                     |
     +--------------------------------+-----------------------------------------------------+
-    |- ep_rew                        |From timestep 2 and writer is not None               |
-    |- ep_done                       |                                                     |
+    |- maybe_is_success              |After the first episode                              |
     +--------------------------------+-----------------------------------------------------+
-    |- experience                    |after the first rollout                              |
-    |- obses_t                       |                                                     |
-    |- actions                       |                                                     |
+    |- obses_t                       |After at least ``max(batch_size, learning_starts)``  |
+    |- actions                       |and every `train_freq` steps                         |
     |- rewards                       |                                                     |
     |- obses_tp1                     |                                                     |
     |- dones                         |                                                     |
     |- weights                       |                                                     |
     |- batch_idxes                   |                                                     |
-    +--------------------------------+-----------------------------------------------------+
-    |- summary                       |after the first rollout and writer is not None       |
     |- td_errors                     |                                                     |
-    +--------------------------------+-----------------------------------------------------+
-    |- run_options                   |From timestep 100 and when writer is not None        |
-    |- run_metadata                  |                                                     |
-    +--------------------------------+-----------------------------------------------------+
-    |- maybe_is_success              |after the first episode, before rollout end          |
     +--------------------------------+-----------------------------------------------------+
