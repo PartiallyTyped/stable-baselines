@@ -160,3 +160,54 @@ You can easily define a custom architecture for the policy network:
   model = TD3(CustomTD3Policy, env, action_noise=action_noise, verbose=1)
   # Train the agent
   model.learn(total_timesteps=80000)
+
+Depending on initialization parameters and timestep, different variables are accessible.
+Variables accessible from "timestep X" are variables that can be accessed when
+self.timestep==X from the `on_step` function
+
+    +--------------------------------+-----------------------------------------------------+
+    |Variable                        |                                         Availability|
+    +================================+=====================================================+
+    |- new_tb_log                    | From timestep 0                                     |
+    |- callback                      |                                                     |
+    |- replay_wrapper                |                                                     |
+    |- total_timesteps               |                                                     |
+    |- log_interval                  |                                                     |
+    |- tb_log_name                   |                                                     |
+    |- reset_num_timesteps           |                                                     |
+    |- current_lr                    |                                                     |
+    |- start_time                    |                                                     |
+    |- episode_rewards               |                                                     |
+    |- episode_successes             |                                                     |
+    |- obs                           |                                                     |
+    |- n_updates                     |                                                     |
+    |- infos_values                  |                                                     |
+    +--------------------------------+-----------------------------------------------------+
+    |- obs\_                         | From timestep 0 and when self._vec_normalize_env    |
+    |                                | is not None                                         |
+    +--------------------------------+-----------------------------------------------------+
+    |- step                          | From timestep 1                                     |
+    |- unscaled_action               |                                                     |
+    |- action                        |                                                     |
+    |- new_obs                       |                                                     |
+    |- reward                        |                                                     |
+    |- done                          |                                                     |
+    |- info                          |                                                     |
+    +--------------------------------+-----------------------------------------------------+
+    |- new_obs\_                     | From timestep 2                                     |
+    |- reward\_                      |                                                     |
+    |- maybe_ep_info                 |                                                     |
+    |- num_episodes                  |                                                     |
+    |- fps                           |                                                     |
+    +--------------------------------+-----------------------------------------------------+
+    |- ep_reward                     | From timestep 2 and when writer is not None         |
+    |- ep_done                       |                                                     |
+    +--------------------------------+-----------------------------------------------------+
+    |- mb_infos_vals                 | After train_freq steps                              |
+    |- grad_step                     |                                                     |
+    |- frac                          |                                                     |
+    |- current_lr                    |                                                     |
+    +--------------------------------+-----------------------------------------------------+
+    |- maybe_is_success              | After the first episode termination                 |
+    +--------------------------------+-----------------------------------------------------+
+
