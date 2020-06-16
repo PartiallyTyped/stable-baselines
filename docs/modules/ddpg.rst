@@ -167,10 +167,12 @@ Callbacks - Accessible Variables
 
 
 Depending on initialization parameters and timestep, different variables are accessible.
+Variables accessible from "timestep X" are variables that can be accessed when ``self.timestep==X`` from the ``on_step`` function.
+
     +--------------------------------+-----------------------------------------------------+
     |Variable                        |                                         Availability|
     +================================+=====================================================+
-    |- new_tb_log                    |Since timestep 0                                     |
+    |- new_tb_log                    |From timestep 0                                      |
     |- callback                      |                                                     |
     |- rank                          |                                                     |
     |- eval_episode_rewards_history  |                                                     |
@@ -198,10 +200,10 @@ Depending on initialization parameters and timestep, different variables are acc
     |- epoch                         |                                                     |
     |- logger                        |                                                     |
     +--------------------------------+-----------------------------------------------------+
-    |- obs\_                         |Since timestep 0 and when self.vec_normalize_env is  |
+    |- obs\_                         |From timestep 0 and when self.vec_normalize_env is   |
     |                                | not None or since timestep 2                        |
     +--------------------------------+-----------------------------------------------------+
-    |- action                        |Since timestep 1                                     |
+    |- action                        |From timestep 1                                      |
     |- q_value                       |                                                     |
     |- unscaled_action               |Note: unscaled_action is overriden with the          |
     |- action                        |evaluation's unscaled action during the evaluation   |
@@ -210,11 +212,11 @@ Depending on initialization parameters and timestep, different variables are acc
     |- done                          |                                                     |
     |- info                          |                                                     |
     +--------------------------------+-----------------------------------------------------+
-    |- obs\_                         |Since timestep 2                                     |
+    |- obs\_                         |From timestep 2                                      |
     |- new_obs\_                     |                                                     |
     |- reward\_                      |                                                     |
     +--------------------------------+-----------------------------------------------------+
-    |- ep_rew                        |Since timestep 2 and writer is not None              |
+    |- ep_rew                        |From timestep 2 and writer is not None               |
     |- ep_done                       |                                                     |
     +--------------------------------+-----------------------------------------------------+
     |- actor_loss                    |After the first rollout                              |

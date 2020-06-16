@@ -163,7 +163,7 @@ You can easily define a custom architecture for the policy network:
 
 Depending on initialization parameters and timestep, different variables are accessible.
 Variables accessible from "timestep X" are variables that can be accessed when
-self.timestep==X from the `on_step` function
+``self.timestep==X`` from the ``on_step`` function.
 
     +--------------------------------+-----------------------------------------------------+
     |Variable                        |                                         Availability|

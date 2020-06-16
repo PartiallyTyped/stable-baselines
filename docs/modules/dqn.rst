@@ -176,17 +176,20 @@ Callbacks - Accessible Variables
 --------------------------------
 
 Depending on initialization parameters and timestep, different variables are accessible.
+Variables accessible from "timestep X" are variables that can be accessed when
+``self.timestep==X`` from the ``on_step`` function.
+
     +--------------------------------+-----------------------------------------------------+
     |Variable                        |                                         Availability|
     +================================+=====================================================+
-    |- new_tb_log                    |Since timestep 0                                     |
+    |- new_tb_log                    |From timestep 0                                      |
     |- callback                      |                                                     |
     |- episode_rewards               |                                                     |
     |- episode_successes             |                                                     |
     +--------------------------------+-----------------------------------------------------+
     |- prioritized_replay_beta_iters |Since timestep 0 and when prioritized_replay is True |
     +--------------------------------+-----------------------------------------------------+
-    |- reset                         |timestep 1                                           |
+    |- reset                         |From timestep 1                                      |
     |- obs                           |                                                     |
     |- kwargs                        |                                                     |
     |- update_eps                    |                                                     |
@@ -198,14 +201,14 @@ Depending on initialization parameters and timestep, different variables are acc
     |- done                          |                                                     |
     |- info                          |                                                     |
     +--------------------------------+-----------------------------------------------------+
-    |- obs\_                         |timestep 1 and environment is VecNormalize           |
+    |- obs\_                         |From timestep 1 and environment is VecNormalize      |
     +--------------------------------+-----------------------------------------------------+
-    |- obs\_                         |timestep 2                                           |
+    |- obs\_                         |From timestep 2                                      |
     |- new_obs\_                     |                                                     |
     |- reward\_                      |                                                     |
     |- can_sample                    |                                                     |
     +--------------------------------+-----------------------------------------------------+
-    |- ep_rew                        |timestep 2 and writer is not None                    |
+    |- ep_rew                        |From timestep 2 and writer is not None               |
     |- ep_done                       |                                                     |
     +--------------------------------+-----------------------------------------------------+
     |- experience                    |after the first rollout                              |
@@ -220,7 +223,7 @@ Depending on initialization parameters and timestep, different variables are acc
     |- summary                       |after the first rollout and writer is not None       |
     |- td_errors                     |                                                     |
     +--------------------------------+-----------------------------------------------------+
-    |- run_options                   |if writer is not None and after 100 steps            |
+    |- run_options                   |From timestep 100 and when writer is not None        |
     |- run_metadata                  |                                                     |
     +--------------------------------+-----------------------------------------------------+
     |- maybe_is_success              |after the first episode, before rollout end          |
