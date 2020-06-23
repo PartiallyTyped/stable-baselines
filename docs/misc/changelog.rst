@@ -34,6 +34,8 @@ Bug Fixes:
 - Fixed ``render()`` method for ``VecEnvs``
 - Fixed ``seed()``` method for ``SubprocVecEnv``
 - Fixed a bug ``callback.locals`` did not have the correct values (@PartiallyTyped)
+- Fixed a bug in the ``close()`` method of ``SubprocVecEnv``, causing wrappers further down in the wrapper stack to not be closed. (@NeoExtended)
+
 
 Deprecations:
 ^^^^^^^^^^^^^
