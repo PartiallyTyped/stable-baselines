@@ -56,7 +56,7 @@ class BaseCallback(ABC):
 
         For reference to which variables are accessible,
         check each individual algorithm's documentation
-        :param locals_: (Dict[str, Any]) current local variables
+        :param `locals_`: (Dict[str, Any]) current local variables
         """
         self.locals.update(locals_)
 
